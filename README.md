@@ -18,6 +18,39 @@ We invite you, as an audio developer, to explore the extended documentation avai
 
 For further technical information, comprehensive guides, didactic resources, and the full API reference, please visit our official documentation site at https://docs.comdigis.com/ where content is continually updated and expanded to support your work.
 
+### Installation
+
+This package supports installation via `SwiftPM` only and requires the following configuration:
+
+- *Xcode 14.x and Swift 5.x*
+- *Minimum deployment target iOS 17.6*
+
+**Integrate this package in your `Package.swift` as follows:**
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YourProject",
+    platforms: [.macOS(.v11), .iOS(.v13)],
+    dependencies: [
+        .package(url: "https://github.com/comdigis-community/IO.git", from: "X.X.X")
+    ],
+    targets: [
+        .target(
+            name: "YourProject",
+            dependencies: [.product(name: "IO", package: "IO")]
+        )
+    ]
+)
+```
+
+### Issues
+
+If you would like to report an issue or submit a feature request, please use the official GitHub issue tracker. This helps ensure we receive all the necessary information to properly review and address your request.
+
+https://github.com/comdigis-community/IO/issues
+
 #### License
 
 This project is distributed under a license that allows its use, modification, and distribution, provided that the specified terms are respected (http://opensource.org/licenses/mit-license.php)
