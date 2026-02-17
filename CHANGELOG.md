@@ -1,5 +1,20 @@
 #### Changelog
 
+##### [2026.1.6] - 2026-02-17
+
+> This section provides an overview of the project, its objectives, and the scope of the release, including the current status (alpha, beta, RC, or stable) and its general considerations.
+
+- [I/O] Implements a node-based signal routing system  
+- [I/O] Supports real-time audio source selection and playback  
+- [I/O] Introduces effect processing nodes (EQ, reverb, delay, etc.)  
+- [I/O] Adds visualization tools for real-time audio signals  
+- [I/O] Enables scalable, context-based audio routing  
+- [I/O] Optimizes low-latency audio processing in Swift using Accelerate  
+- [I/O] Supports complex audio chains and interconnected graphs  
+- [I/O] Adds multiplatform support for audio contexts (linux/windows/mac)  
+- [I/O] Provides high-precision real-time audio rendering  
+- [I/O] Adds a modular audio graph engine in Swift  
+
 ##### [2026.1.5] - 2026-02-17
 
 > This section provides an overview of the project, its objectives, and the scope of the release, including the current status (alpha, beta, RC, or stable) and its general considerations.
@@ -154,4 +169,4 @@
 
 This project is distributed under a license that allows its use, modification, and distribution, provided that the specified terms are respected (http://opensource.org/licenses/mit-license.php)
 
-Copyright © 2019 - 2027 - ***Comdigis***, *Buenos Aires, Argentina*
+Copyright © 2019 - 2027 - ***Comdigis***, *Buenos Aires, Argentina*.
