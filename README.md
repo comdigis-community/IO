@@ -4,9 +4,17 @@ I/O is a **multiplatform audio graph engine**, written entirely in ***Swift***, 
 
 The output of each node can be routed to others, mixing, transforming, or processing the audio signal in different ways, enabling sophisticated paths for ***production, analysis, or final rendering***. Thanks to its modular architecture and optimized implementation in ***Swift***, I/O combines design clarity with high performance, ensuring accuracy and low latency across multiple environments.
 
-https://github.com/comdigis-community/IO/releases/download/2026.1.7/IO-2026.1.7-community-mobile.mp4
+#### Preview (iOS)
 
-https://github.com/comdigis-community/IO/releases/download/2026.1.7/IO-2026.1.7-community-mac.mp4
+This demo showcases I/O running on **iOS**, integrated with **RealityKit**, highlighting real-time audio graph processing in an interactive and spatial context. It demonstrates how audio sources and processing nodes can be dynamically routed and updated in response to scene changes, making it suitable for immersive and interactive experiences on mobile devices.
+
+[![Mobile demo](./images/comdigis.png)](https://youtu.be/wd83_5iCI0k)
+
+#### Preview (desktop)
+
+This demo presents I/O in a **macOS** environment through a configurable desktop application. It focuses on exploring the engine’s core capabilities—audio routing, parameter control, and real-time processing—allowing developers to experiment with different graph configurations and better understand the system’s behavior in a controlled, non-immersive setting.
+
+[![macOS demo](./images/comdigis.png)](https://youtu.be/zn6s1bCa9eQ)
 
 ### Getting Started
 
