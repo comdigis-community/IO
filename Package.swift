@@ -35,5 +35,5 @@ let package = Package(
 )
 
 package.targets += [
-    .binaryTarget(name: "IO", url: "https://github.com/comdigis-community/IO/releases/download/2026.1.6/IO-2026.1.6-community.xcframework.zip", checksum: "b896959ae0c448b37150316ff0132cf2f315c4e2867f3f272c4d2294466d554e")
+    .binaryTarget(name: "IO", url: "https://github.com/comdigis-community/IO/releases/download/2026.1.7/IO-2026.1.7-community.xcframework.zip", checksum: "c6af3059c96f7f56cfe5e1efedef2e5869daf33944400d4988a057c4cb04c633")
 ]
