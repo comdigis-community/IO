@@ -26,9 +26,9 @@ class BinauralDatabaseLoader {
     
     static let database = BinauralDatabase(location: URL.HRTF())
     
-    private static var isLoading = false
+    private static var isDatabaseReady = false
     private static let queue = DispatchQueue(label: "com.comdigis.io.database")
-    private static var isLoaded = false
+    private static var isPreloadInFlight = false
     private static var completions: [(Result<Bool, Error>) -> Void] = []
     
     enum DatabasePreloadError: LocalizedError {
@@ -39,7 +39,7 @@ class BinauralDatabaseLoader {
     // result to all waiting completions. This keeps database boot deterministic for UI flows.
     static func preload(completion: @escaping (Result<Bool, Error>) -> Void) {
         queue.async {
-            if isLoading {
+            if isDatabaseReady {
                 DispatchQueue.main.async {
                     completion(.success(true))
                 }
@@ -47,12 +47,12 @@ class BinauralDatabaseLoader {
             }
 
             completions.append(completion)
-            guard !isLoaded else { return }
-            isLoaded = true
+            guard !isPreloadInFlight else { return }
+            isPreloadInFlight = true
 
             database.loadAsynchronously { result in
                 queue.async {
-                    isLoaded = false
+                    isPreloadInFlight = false
                     let localCompletions = completions
                     completions.removeAll()
 
@@ -61,7 +61,7 @@ class BinauralDatabaseLoader {
                     let normalizedResult: Result<Bool, Error>
                     switch result {
                     case .success(let loaded) where loaded:
-                        isLoading = true
+                        isDatabaseReady = true
                         normalizedResult = .success(true)
                     case .success:
                         normalizedResult = .failure(DatabasePreloadError.didNotLoad)

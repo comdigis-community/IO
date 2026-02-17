@@ -49,7 +49,7 @@ class CameraViewController: UIViewController {
         updateOrientationOverlay()
     }
 
-    fileprivate func configure() {
+    private func configure() {
         arView = ARView(frame: view.bounds)
         arView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(arView)
@@ -114,6 +114,12 @@ class CameraViewController: UIViewController {
         super.viewDidAppear(animated)
         updateOrientationOverlay()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard isMovingFromParent || isBeingDismissed else { return }
+        resetToInitialState()
+    }
     
     override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
         return .landscapeRight
@@ -123,9 +129,8 @@ class CameraViewController: UIViewController {
     }
 
     deinit {
+        resetToInitialState()
         tick?.invalidate()
-        coordinator?.stop(after: .zero)
-        arView.session.pause()
         arView.removeFromSuperview()
         arView = nil
     }
@@ -134,6 +139,17 @@ class CameraViewController: UIViewController {
 
 extension CameraViewController {
     var listenerScale: Float { listenerUpdateModel.worldMetersToAudioUnits }
+
+    private func resetToInitialState() {
+        coordinator?.stop(after: .zero)
+        coordinator = nil
+
+        objectAnchor?.removeFromParent()
+        objectAnchor = nil
+
+        listenerUpdateModel = ListenerUpdate()
+        arView?.session.pause()
+    }
     private func isPortraitInterface() -> Bool {
         view.window?.windowScene?
             .interfaceOrientation.isPortrait ?? (view.bounds.height >= view.bounds.width)
@@ -141,7 +157,7 @@ extension CameraViewController {
     private func configureOrientationOverlay() {
         let overlay = UIView()
         overlay.translatesAutoresizingMaskIntoConstraints = false
-        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.75)
         overlay.alpha = 0.0
         overlay.isHidden = true
         overlay.isUserInteractionEnabled = false
@@ -157,10 +173,10 @@ extension CameraViewController {
         overlay.addSubview(imageView)
         view.addSubview(overlay)
 
-        overlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        overlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         overlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        overlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         overlay.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        overlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         imageView.centerXAnchor.constraint(equalTo: overlay.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: overlay.centerYAnchor).isActive = true
@@ -170,7 +186,7 @@ extension CameraViewController {
     private func updateOrientationOverlay() {
         guard let overlay = orientationOverlayView else { return }
         let shouldShow = isPortraitInterface()
-        overlay.isHidden = false
+        overlay.isHidden = !shouldShow
         UIView.animate(withDuration: 0.25, delay: 0.0, options: [.curveEaseInOut]) {
             overlay.alpha = shouldShow ? 1.0 : 0.0
         } completion: { _ in

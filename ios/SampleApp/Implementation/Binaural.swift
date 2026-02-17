@@ -85,9 +85,9 @@ final class BinauralCoordinator: Component, @unchecked Sendable {
 }
 
 extension BinauralCoordinator: MediaObservationDelegate {
-    func onRouteChanged(_ change: Notification) {
+    func mediaObservation(_ observer: MediaObservation, didDetect change: AudioSessionChange) {
         switch change {
-        case .changed:
+        case .routeChanged:
             play(after: .zero)
         case .interruptionBegan:
             stop(after: .zero)

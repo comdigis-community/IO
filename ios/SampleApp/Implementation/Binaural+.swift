@@ -22,14 +22,14 @@
 import IO
 import AVFoundation
 
-enum Notification: Equatable {
-    case changed
+enum AudioSessionChange: Equatable {
+    case routeChanged
     case interruptionBegan
     case interruptionEnded
 }
 
 protocol MediaObservationDelegate {
-    func onRouteChanged(_ change: Notification)
+    func mediaObservation(_ observer: MediaObservation, didDetect change: AudioSessionChange)
 }
 
 class MediaObservation {
@@ -87,7 +87,7 @@ extension MediaObservation {
                 switch reason {
                 case .newDeviceAvailable, .oldDeviceUnavailable:
                     logCurrentRoute(AVAudioSession.sharedInstance())
-                    delegate.onRouteChanged(.changed)
+                    delegate.mediaObservation(self, didDetect: .routeChanged)
                 default:
                     break
                 }
@@ -107,10 +107,10 @@ extension MediaObservation {
 
                 switch type {
                 case .began:
-                    delegate.onRouteChanged(.interruptionBegan)
+                    delegate.mediaObservation(self, didDetect: .interruptionBegan)
                 case .ended:
                     configureAudioSession()
-                    delegate.onRouteChanged(.interruptionEnded)
+                    delegate.mediaObservation(self, didDetect: .interruptionEnded)
                 default:
                     break
                 }

@@ -65,12 +65,20 @@
 		BD26444C2F44221000E17C01 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BD26444B2F44221000E17C01 /* CameraViewController.swift */,
-				BD2648162F44316B00E17C01 /* CameraViewController+.swift */,
+				BD4214082F443D99005BD831 /* Binaural */,
 				BD26444A2F44221000E17C01 /* ViewController.swift */,
 				BD2644502F44223700E17C01 /* ViewController+.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		BD4214082F443D99005BD831 /* Binaural */ = {
+			isa = PBXGroup;
+			children = (
+				BD26444B2F44221000E17C01 /* CameraViewController.swift */,
+				BD2648162F44316B00E17C01 /* CameraViewController+.swift */,
+			);
+			path = Binaural;
 			sourceTree = "<group>";
 		};
 		BDFBD0C62F418FB00043F7CD /* Assets */ = {

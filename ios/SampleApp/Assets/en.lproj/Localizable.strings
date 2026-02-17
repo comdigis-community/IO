@@ -2,4 +2,4 @@
 "sample.section.examples.title" = "BINAURAL";
 "sample.demo.realitykit.title" = "Go to the demo";
 "sample.info.caption" = "Welcome";
-"sample.info.message" = "Thank you for using this proof of concept. Our spatial audio technology enables you to build real-time, multiplatform immersive experiences, making it easier to create interactive applications, spatial narratives, and enveloping sound environments. As you move through the scene, the engine dynamically adjusts routing and processing parameters in real time. The use of headphones is recommended for the best experience.";
+"sample.info.message" = "Thank you for using this proof of concept. Our spatial audio technology enables you to build real-time, multiplatform immersive experiences, making it easier to create interactive applications, spatial narratives, and enveloping sound environments. As you move through the scene, the engine dynamically adjusts routing and processing parameters in real time.\n\nTo get started, go to the demo section with your device in landscape orientation, then add an object using the + button from the navigation bar. The use of headphones is recommended for the best experience.";
