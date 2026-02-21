@@ -8,6 +8,12 @@ The output of each node can be routed to others, mixing, transforming, or proces
 
 This demo showcases I/O running on **iOS** with **RealityKit**, highlighting real-time audio graph processing in an interactive and spatial context. It demonstrates how audio sources and processing nodes can be dynamically updated in response to changes, making it suitable for immersive experiences.
 
+[![Mobile demo](./images/comdigis.png)](https://youtu.be/jB82GUj6mIA)
+
+#### Preview (iOS)
+
+This demo showcases I/O running on **iOS** with **RealityKit**, highlighting real-time audio graph processing in an interactive and spatial context. It demonstrates how audio sources and processing nodes can be dynamically updated in response to changes, making it suitable for immersive experiences.
+
 [![Mobile demo](./images/comdigis.png)](https://youtu.be/wd83_5iCI0k)
 
 #### Preview (desktop)
