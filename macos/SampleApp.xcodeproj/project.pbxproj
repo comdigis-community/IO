@@ -48,10 +48,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BD2622272F429D8C00E17C01 /* IRCAM */ = {
+		BD2622272F429D8C00E17C01 /* database */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			name = IRCAM;
-			path = ../IRCAM;
+			name = database;
+			path = ../database;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -71,7 +71,7 @@
 		BD8C60022E0CDC010050AB5C = {
 			isa = PBXGroup;
 			children = (
-				BD2622272F429D8C00E17C01 /* IRCAM */,
+				BD2622272F429D8C00E17C01 /* database */,
 				BDFBA22B2F41414C0043F7CD /* SampleApp */,
 				BD8C600C2E0CDC010050AB5C /* Products */,
 			);
@@ -165,7 +165,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BD2622272F429D8C00E17C01 /* IRCAM */,
+				BD2622272F429D8C00E17C01 /* database */,
 			);
 			name = SampleApp;
 			packageProductDependencies = (

@@ -47,7 +47,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		BD2620442F429D7200E17C01 /* IRCAM */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); name = IRCAM; path = ../IRCAM; sourceTree = SOURCE_ROOT; };
+		BD2620442F429D7200E17C01 /* database */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); name = database; path = ../database; sourceTree = SOURCE_ROOT; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +98,7 @@
 		DC5DAC4B2B5E97C7003BC704 = {
 			isa = PBXGroup;
 			children = (
-				BD2620442F429D7200E17C01 /* IRCAM */,
+				BD2620442F429D7200E17C01 /* database */,
 				DC5DAC562B5E97C8003BC704 /* SampleApp */,
 				DC5DAC552B5E97C8003BC704 /* Products */,
 			);
@@ -150,7 +150,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				BD2620442F429D7200E17C01 /* IRCAM */,
+				BD2620442F429D7200E17C01 /* database */,
 			);
 			name = "SampleApp (iOS)";
 			packageProductDependencies = (
