@@ -28,6 +28,9 @@
 # Ignores swift package manager build folder
 /.build
 
+# Ignores swift package manager build folder
+/build
+
 # Ignores any xcode generate user data
 xcuserdata/
 
