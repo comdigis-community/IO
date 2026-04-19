@@ -48,3 +48,7 @@ xcschememanagement.plist
 
 # Ignores any swift package manager generate package resolved
 Package.resolved
+
+# IDE metadata
+.idea/
+/android/.idea/

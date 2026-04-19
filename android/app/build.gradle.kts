@@ -22,7 +22,7 @@ abstract class SyncHrtfAssetsTask : DefaultTask() {
 
 val generatedHrtfAssetsDir = layout.buildDirectory.dir("generated/assets/hrtf")
 val syncHrtfAssets by tasks.registering(SyncHrtfAssetsTask::class) {
-    sourceDir.set(rootProject.layout.projectDirectory.dir("../../database"))
+    sourceDir.set(rootProject.layout.projectDirectory.dir("../database"))
     outputDir.set(generatedHrtfAssetsDir)
 }
 
