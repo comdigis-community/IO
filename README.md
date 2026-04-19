@@ -26,19 +26,17 @@ This demo presents I/O in a **macOS** environment through a configurable desktop
 
 Thank you for your interest in our platform. We appreciate your curiosity and are delighted that you are exploring I/O as part of your audio development workflow.
 
-At this stage, the distributed binary package in the form of an **xcframework** provides support exclusively for **iOS and macOS** platforms. We are actively working on expanding compatibility to include **Android**, with support for **Linux** and **Windows** planned for future releases.
+The distributed package currently includes stable Apple platform binaries (`xcframework`) for **iOS** and **macOS**. This repository also includes an **experimental Android implementation** for COMMUNITY, distributed as a versioned `.aar` through GitHub Releases and validated with an Android sample project.
 
-The project includes two sample applications demonstrating key use cases: 
+The project includes three sample applications demonstrating key use cases: 
 
-An **iOS sample** showcasing integration with *RealityKit*, illustrating how to drive spatial audio experience in interactive environments. 
-
- A **macOS sample** offering a configurable application where parameters can be adjusted to explore and experiment with the engine’s capabilities.
+An **iOS sample** showcasing integration with *RealityKit*, illustrating how to drive spatial audio experience in interactive environments.  A **macOS sample** offering a configurable application where parameters can be adjusted to explore and experiment with the engine’s capabilities. An **Android experimental sample** is available under `/android` and demonstrates client-side integration of the released COMMUNITY AAR.
 
 We invite you, as an audio developer, to explore the extended documentation available in the root of the repository under the **/documentation** directory. There you will find detailed technical guides, installation instructions, examples, and patterns to accelerate your adoption.
 
 For further technical information, comprehensive guides, didactic resources, and the full API reference, please visit our official documentation site at https://docs.comdigis.com/ where content is continually updated and expanded to support your work.
 
-### Installation
+### Installation (Apple)
 
 This package supports installation via `SwiftPM` only and requires the following configuration:
 
@@ -63,6 +61,25 @@ let package = Package(
         )
     ]
 )
+```
+
+### Installation (Android)
+
+Android COMMUNITY is distributed as a versioned `.aar` in GitHub Releases (no Maven repository required).
+
+- Download `IO-<version>-community.aar` and `IO-<version>-community.aar.sha256` from release tag.
+- Verify integrity before integration.
+
+```bash
+shasum -a 256 IO-<version>-community.aar
+```
+
+- Add the artifact to your app (for example, `app/libs/`) and reference it from Gradle:
+
+```kotlin
+dependencies {
+    implementation(files("libs/IO-<version>-community.aar"))
+}
 ```
 
 ### Issues
