@@ -49,6 +49,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "IOSDKCommunityAndroid"
+rootProject.name = "SampleApp"
 include(":app")
 include(":experimental")
