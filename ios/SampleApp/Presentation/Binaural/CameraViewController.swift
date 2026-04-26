@@ -30,23 +30,19 @@ class CameraViewController: UIViewController {
     var coordinator: BinauralCoordinator?
     var objectAnchor: AnchorEntity?
     
-    private var orientationOverlayView: UIView?
+    private var onboardingOverlayView: UIView?
+    private var preloaderOverlayView: UIView?
+    private var isReadyForPlacement = false
     private var listenerUpdateModel = ListenerUpdate()
     private var tick: CADisplayLink?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationController?.navigationBar.barTintColor = UIColor.systemBlue
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = UIColor.white
-
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addObject))
-        navigationItem.rightBarButtonItem = add
-
         configure()
-        configureOrientationOverlay()
-        updateOrientationOverlay()
+        configurePreloaderOverlay()
+        configureOnboardingOverlay()
+        warmUpExperience()
     }
 
     private func configure() {
@@ -60,6 +56,9 @@ class CameraViewController: UIViewController {
         arView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         arView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOnARView))
+        arView.addGestureRecognizer(tapGesture)
+
         tick = CADisplayLink(target: self, selector: #selector(handleDisplayLinkUpdate))
         tick?.preferredFramesPerSecond = 20
         tick?.add(to: .main, forMode: .common)
@@ -69,7 +68,13 @@ class CameraViewController: UIViewController {
         return true
     }
 
-    @objc private func addObject() {
+    @objc private func handleTapOnARView() {
+        guard isReadyForPlacement else { return }
+        hideOnboardingOverlay()
+        addObjectIfNeeded()
+    }
+
+    @objc private func addObjectIfNeeded() {
         guard objectAnchor == nil else { return }
 
         // Resolve a forward placement point from camera transform so the demo object
@@ -98,21 +103,6 @@ class CameraViewController: UIViewController {
         let timestamp = CACurrentMediaTime()
         guard shouldUpdateListener(at: timestamp) else { return }
         update(timestamp: timestamp)
-    }
-
-    override func viewWillTransition(
-        to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-            super.viewWillTransition(to: size, with: coordinator)
-            coordinator.animate(alongsideTransition: { _ in
-                self.updateOrientationOverlay()
-            }, completion: { _ in
-                self.updateOrientationOverlay()
-            })
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        updateOrientationOverlay()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -150,47 +140,140 @@ extension CameraViewController {
         listenerUpdateModel = ListenerUpdate()
         arView?.session.pause()
     }
-    private func isPortraitInterface() -> Bool {
-        view.window?.windowScene?
-            .interfaceOrientation.isPortrait ?? (view.bounds.height >= view.bounds.width)
-    }
-    private func configureOrientationOverlay() {
+
+    private func configurePreloaderOverlay() {
         let overlay = UIView()
         overlay.translatesAutoresizingMaskIntoConstraints = false
-        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.75)
-        overlay.alpha = 0.0
-        overlay.isHidden = true
-        overlay.isUserInteractionEnabled = false
+        overlay.backgroundColor = .black
+        overlay.alpha = 1.0
+        overlay.isHidden = false
+        overlay.isUserInteractionEnabled = true
 
-        let imageView = UIImageView(image: UIImage(systemName: "iphone.landscape"))
-        let preferredConfiguration = UIImage.SymbolConfiguration(pointSize: 64, weight: .semibold)
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.tintColor = .white
-        imageView.preferredSymbolConfiguration = preferredConfiguration
-        imageView.contentMode = .scaleAspectFit
-        
-        overlay.addSubview(imageView)
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.translatesAutoresizingMaskIntoConstraints = false
+        indicator.color = .white
+        indicator.alpha = 1.0
+        indicator.startAnimating()
+
+        overlay.addSubview(indicator)
         view.addSubview(overlay)
 
         overlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         overlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         overlay.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         overlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        imageView.centerXAnchor.constraint(equalTo: overlay.centerXAnchor).isActive = true
-        imageView.centerYAnchor.constraint(equalTo: overlay.centerYAnchor).isActive = true
-        
-        orientationOverlayView = overlay
+
+        indicator.centerXAnchor.constraint(equalTo: overlay.centerXAnchor).isActive = true
+        indicator.centerYAnchor.constraint(equalTo: overlay.centerYAnchor).isActive = true
+
+        view.bringSubviewToFront(overlay)
+        preloaderOverlayView = overlay
     }
-    private func updateOrientationOverlay() {
-        guard let overlay = orientationOverlayView else { return }
-        let shouldShow = isPortraitInterface()
-        overlay.isHidden = !shouldShow
-        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.curveEaseInOut]) {
-            overlay.alpha = shouldShow ? 1.0 : 0.0
+
+    private func configureOnboardingOverlay() {
+        let overlay = UIView()
+        overlay.translatesAutoresizingMaskIntoConstraints = false
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.35)
+        overlay.alpha = 0.0
+        overlay.isHidden = true
+        overlay.isUserInteractionEnabled = false
+
+        let iconView = UIImageView(image: UIImage(systemName: "hand.tap.fill"))
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.tintColor = .white
+        iconView.contentMode = .scaleAspectFit
+        iconView.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 56, weight: .semibold)
+
+        let messageLabel = UILabel()
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.text = NSLocalizedString("sample.info.onboarding", comment: "")
+        messageLabel.textColor = .white
+        messageLabel.font = .systemFont(ofSize: 17, weight: .medium)
+        messageLabel.textAlignment = .center
+        messageLabel.numberOfLines = 0
+
+        let stack = UIStackView(arrangedSubviews: [iconView, messageLabel])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .vertical
+        stack.spacing = 20
+        stack.alignment = .center
+
+        overlay.addSubview(stack)
+        view.addSubview(overlay)
+
+        overlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        overlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        overlay.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        overlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+
+        stack.leadingAnchor.constraint(equalTo: overlay.leadingAnchor, constant: 32).isActive = true
+        stack.trailingAnchor.constraint(equalTo: overlay.trailingAnchor, constant: -32).isActive = true
+        stack.centerXAnchor.constraint(equalTo: overlay.centerXAnchor).isActive = true
+        stack.centerYAnchor.constraint(equalTo: overlay.centerYAnchor).isActive = true
+
+        iconView.widthAnchor.constraint(equalToConstant: 64).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: 64).isActive = true
+
+        onboardingOverlayView = overlay
+    }
+
+    private func warmUpExperience() {
+        BinauralDatabaseLoader.preload { [weak self] result in
+            guard let self else { return }
+
+            switch result {
+            case .success:
+                self.warmUpCoordinator()
+            case .failure(let error):
+                self.hidePreloaderOverlay()
+                assertionFailure("Unable to preload HRTF database: \(error)")
+            }
+        }
+    }
+
+    private func warmUpCoordinator() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let result = Result { try BinauralCoordinator(contentsOf: BinauralObject.o1.url) }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.hidePreloaderOverlay()
+                switch result {
+                case .success(let warmedCoordinator):
+                    self.coordinator = warmedCoordinator
+                    self.isReadyForPlacement = true
+                    self.showOnboardingOverlay()
+                case .failure(let error):
+                    assertionFailure("Unable to warm up binaural coordinator: \(error)")
+                }
+            }
+        }
+    }
+
+    private func hidePreloaderOverlay() {
+        guard let overlay = preloaderOverlayView else { return }
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut]) {
+            overlay.alpha = 0.0
         } completion: { _ in
-            overlay.isHidden = !shouldShow
+            overlay.removeFromSuperview()
+        }
+        preloaderOverlayView = nil
+    }
+
+    private func showOnboardingOverlay() {
+        guard let overlay = onboardingOverlayView else { return }
+        overlay.isHidden = false
+        view.bringSubviewToFront(overlay)
+        UIView.animate(withDuration: 0.25, delay: 0.0, options: [.curveEaseInOut]) {
+            overlay.alpha = 1.0
+        }
+    }
+
+    private func hideOnboardingOverlay() {
+        guard let overlay = onboardingOverlayView, !overlay.isHidden else { return }
+        UIView.animate(withDuration: 0.2, delay: 0.0, options: [.curveEaseInOut]) {
+            overlay.alpha = 0.0
+        } completion: { _ in
+            overlay.isHidden = true
         }
     }
 }

@@ -28,7 +28,7 @@ extension CameraViewController {
     // Start playback with the selected demo source and align initial object
     // position with the visual placement distance used when creating the AR anchor.
     func play(with object: BinauralObject, distance: Float) throws {
-        let coordinator = try BinauralCoordinator(contentsOf: object.url)
+        let coordinator = try self.coordinator ?? BinauralCoordinator(contentsOf: object.url)
         coordinator.updateObjectPosition(.init(.zero, .zero, -distance * listenerScale))
         self.coordinator = coordinator
         coordinator.play(after: .zero)
