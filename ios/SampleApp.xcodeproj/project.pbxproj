@@ -10,9 +10,7 @@
 		BD26231B2F429D9B00E17C01 /* IO in Frameworks */ = {isa = PBXBuildFile; productRef = BD26231A2F429D9B00E17C01 /* IO */; };
 		BD263CB62F43B0E600E17C01 /* Foundation+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263CB52F43B0E600E17C01 /* Foundation+.swift */; };
 		BD263CB82F43B4D800E17C01 /* BinauralDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD263CB72F43B4D800E17C01 /* BinauralDatabase.swift */; };
-		BD26444D2F44221000E17C01 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26444A2F44221000E17C01 /* ViewController.swift */; };
 		BD26444E2F44221000E17C01 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26444B2F44221000E17C01 /* CameraViewController.swift */; };
-		BD2644512F44223700E17C01 /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2644502F44223700E17C01 /* ViewController+.swift */; };
 		BD2648172F44316B00E17C01 /* CameraViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2648162F44316B00E17C01 /* CameraViewController+.swift */; };
 		BDFBDF4F2F41AD080043F7CD /* Binaural+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBDF4E2F41AD080043F7CD /* Binaural+.swift */; };
 		BDFBE43C2F426C8A0043F7CD /* voiceover_en.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE43A2F426C8A0043F7CD /* voiceover_en.wav */; };
@@ -28,9 +26,7 @@
 /* Begin PBXFileReference section */
 		BD263CB52F43B0E600E17C01 /* Foundation+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Foundation+.swift"; sourceTree = "<group>"; };
 		BD263CB72F43B4D800E17C01 /* BinauralDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinauralDatabase.swift; sourceTree = "<group>"; };
-		BD26444A2F44221000E17C01 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BD26444B2F44221000E17C01 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
-		BD2644502F44223700E17C01 /* ViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+.swift"; sourceTree = "<group>"; };
 		BD2648162F44316B00E17C01 /* CameraViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+.swift"; sourceTree = "<group>"; };
 		BDFBDF4E2F41AD080043F7CD /* Binaural+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binaural+.swift"; sourceTree = "<group>"; };
 		BDFBE43A2F426C8A0043F7CD /* voiceover_en.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voiceover_en.wav; sourceTree = "<group>"; };
@@ -65,20 +61,10 @@
 		BD26444C2F44221000E17C01 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				BD4214082F443D99005BD831 /* Binaural */,
-				BD26444A2F44221000E17C01 /* ViewController.swift */,
-				BD2644502F44223700E17C01 /* ViewController+.swift */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		BD4214082F443D99005BD831 /* Binaural */ = {
-			isa = PBXGroup;
-			children = (
 				BD26444B2F44221000E17C01 /* CameraViewController.swift */,
 				BD2648162F44316B00E17C01 /* CameraViewController+.swift */,
 			);
-			path = Binaural;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		BDFBD0C62F418FB00043F7CD /* Assets */ = {
@@ -218,9 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD26444D2F44221000E17C01 /* ViewController.swift in Sources */,
 				BD26444E2F44221000E17C01 /* CameraViewController.swift in Sources */,
-				BD2644512F44223700E17C01 /* ViewController+.swift in Sources */,
 				DC5DAC582B5E97C8003BC704 /* App.swift in Sources */,
 				BD263CB62F43B0E600E17C01 /* Foundation+.swift in Sources */,
 				BD2648172F44316B00E17C01 /* CameraViewController+.swift in Sources */,
