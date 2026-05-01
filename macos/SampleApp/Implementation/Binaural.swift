@@ -48,9 +48,11 @@ class BinauralCoordinator: ObservableObject, @unchecked Sendable {
         self.object = object
         
         #if DEBUG
-        // Restrict logs to control-plane events and keep them out of real-time
-        // processing paths. Default is `.none`; enable explicitly only for development builds.
-        context.debug(level: .debug)
+        // Logs are restricted to control-level events only and is never used within real-time
+        // (RT) processing paths, default level is `.none`. It is the responsibility of the client application
+        // to configure the desired logging level explicitly before compiling a release build.
+        // Logging should only be enabled for development/debug configurations.
+        context.debug(level: .none)
         #endif
         
         configureSpatialSettings()
