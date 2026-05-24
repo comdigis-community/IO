@@ -36,12 +36,12 @@
 		BD2DB5452F96C6FA00A4C6D6 /* patagonia.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = patagonia.mov; path = ../../../../etc/patagonia.mov; sourceTree = "<group>"; };
 		BD4A10102F97000100A4C6D6 /* ContentView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+.swift"; sourceTree = "<group>"; };
 		BD91DD872FBD26E700312FFF /* pink_pompeii.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = pink_pompeii.mov; path = ../../../../etc/pink_pompeii.mov; sourceTree = "<group>"; };
-		BD91DD892FBD2E1F00312FFF /* stem_bed_stereo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_bed_stereo.mp3; path = ../../../../../etc/stem_bed_stereo.mp3; sourceTree = "<group>"; };
-		BDADA5A42F971A0100B6EE29 /* stem_guitars_mono_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_guitars_mono_l.mp3; path = ../../../../../etc/stem_guitars_mono_l.mp3; sourceTree = "<group>"; };
-		BDADA5A52F971A0100B6EE29 /* stem_guitars_mono_r.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_guitars_mono_r.mp3; path = ../../../../../etc/stem_guitars_mono_r.mp3; sourceTree = "<group>"; };
-		BDADA5A62F971A0100B6EE29 /* stem_reverb_mono_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_reverb_mono_l.mp3; path = ../../../../../etc/stem_reverb_mono_l.mp3; sourceTree = "<group>"; };
-		BDADA5A72F971A0100B6EE29 /* stem_reverb_mono_r.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_reverb_mono_r.mp3; path = ../../../../../etc/stem_reverb_mono_r.mp3; sourceTree = "<group>"; };
-		BDADA5A82F971A0100B6EE29 /* stem_lead_mono.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_lead_mono.mp3; path = ../../../../../etc/stem_lead_mono.mp3; sourceTree = "<group>"; };
+		BD91DD892FBD2E1F00312FFF /* stem_bed_stereo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_bed_stereo.mp3; path = ../../../../etc/stem_bed_stereo.mp3; sourceTree = "<group>"; };
+		BDADA5A42F971A0100B6EE29 /* stem_guitars_mono_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_guitars_mono_l.mp3; path = ../../../../etc/stem_guitars_mono_l.mp3; sourceTree = "<group>"; };
+		BDADA5A52F971A0100B6EE29 /* stem_guitars_mono_r.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_guitars_mono_r.mp3; path = ../../../../etc/stem_guitars_mono_r.mp3; sourceTree = "<group>"; };
+		BDADA5A62F971A0100B6EE29 /* stem_reverb_mono_l.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_reverb_mono_l.mp3; path = ../../../../etc/stem_reverb_mono_l.mp3; sourceTree = "<group>"; };
+		BDADA5A72F971A0100B6EE29 /* stem_reverb_mono_r.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_reverb_mono_r.mp3; path = ../../../../etc/stem_reverb_mono_r.mp3; sourceTree = "<group>"; };
+		BDADA5A82F971A0100B6EE29 /* stem_lead_mono.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = stem_lead_mono.mp3; path = ../../../../etc/stem_lead_mono.mp3; sourceTree = "<group>"; };
 		BDF311F62F96B1F300E630FF /* SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF311FA2F96B1F300E630FF /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		BDF317C12F96B3F100E630FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,19 +81,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BDA798E02FBAB798003FFF5C /* Audio */ = {
-			isa = PBXGroup;
-			children = (
-				BDADA5A82F971A0100B6EE29 /* stem_lead_mono.mp3 */,
-				BDADA5A42F971A0100B6EE29 /* stem_guitars_mono_l.mp3 */,
-				BDADA5A52F971A0100B6EE29 /* stem_guitars_mono_r.mp3 */,
-				BDADA5A62F971A0100B6EE29 /* stem_reverb_mono_l.mp3 */,
-				BDADA5A72F971A0100B6EE29 /* stem_reverb_mono_r.mp3 */,
-				BD91DD892FBD2E1F00312FFF /* stem_bed_stereo.mp3 */,
-			);
-			path = Audio;
-			sourceTree = "<group>";
-		};
 		BDA79AC32FBAB948003FFF5C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,10 +143,15 @@
 			isa = PBXGroup;
 			children = (
 				BD91DD872FBD26E700312FFF /* pink_pompeii.mov */,
-				BDA798E02FBAB798003FFF5C /* Audio */,
 				BDF317C12F96B3F100E630FF /* Assets.xcassets */,
 				BD2DB5452F96C6FA00A4C6D6 /* patagonia.mov */,
 				BDF317C62F96B3F100E630FF /* Info.plist */,
+				BDADA5A82F971A0100B6EE29 /* stem_lead_mono.mp3 */,
+				BDADA5A42F971A0100B6EE29 /* stem_guitars_mono_l.mp3 */,
+				BDADA5A52F971A0100B6EE29 /* stem_guitars_mono_r.mp3 */,
+				BDADA5A62F971A0100B6EE29 /* stem_reverb_mono_l.mp3 */,
+				BDADA5A72F971A0100B6EE29 /* stem_reverb_mono_r.mp3 */,
+				BD91DD892FBD2E1F00312FFF /* stem_bed_stereo.mp3 */,
 			);
 			path = Assets;
 			sourceTree = "<group>";

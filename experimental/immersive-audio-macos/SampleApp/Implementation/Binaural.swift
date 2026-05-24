@@ -43,7 +43,12 @@ final class BinauralCoordinator: ObservableObject, @unchecked Sendable {
 
         // Initialize source and active processing node together so playback starts in
         // a coherent state for the demo scene.
-        source = FileRenderer(contentsOf: Self.mustLoadResource(named: "voiceover_interactive_en", ext: "mp3"))
+        source = FileRenderer(
+            contentsOf: Self.mustLoadResource(
+                named: "voiceover_interactive_\(Locale.languageCode)",
+                ext: "mp3"
+            )
+        )
         connector = IO.Binaural(database: Self.database)
         
         #if DEBUG

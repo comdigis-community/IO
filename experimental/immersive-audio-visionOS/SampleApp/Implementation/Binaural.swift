@@ -23,7 +23,8 @@ import IO
 import Foundation
 import simd
 
-nonisolated final class BinauralCoordinator: Component, @unchecked Sendable {
+@MainActor
+final class BinauralCoordinator: @unchecked Sendable {
 
     // Channel layout for the immersive mix.
     // Each entry maps one mono WAV stem to a fixed 3D emitter position.
@@ -62,8 +63,6 @@ nonisolated final class BinauralCoordinator: Component, @unchecked Sendable {
         sources = Self.channels.map(Self.makeSource(for:))
         connectors = Self.channels.map { _ in IO.Binaural(database: BinauralDatabaseLoader.database) }
 
-        super.init(annotation: .component)
-
         configureConnectors()
         applySourcePositions()
         configureListener()
@@ -98,7 +97,7 @@ nonisolated final class BinauralCoordinator: Component, @unchecked Sendable {
         }
     }
 
-    deinit {
+    isolated deinit {
         observer.endObservingAudioSession()
     }
 }

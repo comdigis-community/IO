@@ -33,7 +33,10 @@ final class BinauralCoordinator: Component, @unchecked Sendable {
         .init(assetName: "stem_reverb_mono_r", position: .init(x: 50.0, y: 0.0, z: 50.0))
     ]
 
+    private static let bedAssetName = "stem_bed_stereo"
+
     private let context: AudioGraph
+    private let bedSource: FileRenderer
     private let sources: [Renderer]
     private let connectors: [AudioNode]
     private let observer = MediaObservation()
@@ -48,6 +51,8 @@ final class BinauralCoordinator: Component, @unchecked Sendable {
 
         // Initialize sources and processing nodes together so every channel starts in a coherent
         // state. Each binaural node remains the insertion point before destination output.
+        bedSource = FileRenderer(contentsOf: Self.resourceURL(named: Self.bedAssetName))
+        bedSource.isLoopEnabled = true
         sources = Self.channels.map { configuration in
             Self.makeSource(for: configuration)
         }
@@ -78,10 +83,13 @@ final class BinauralCoordinator: Component, @unchecked Sendable {
 
     func play(after timeInterval: TimeInterval = .zero) {
         observer.configureAudioSession()
+        bedSource.play(after: timeInterval, completion: nil)
         sources.forEach { $0.play(after: timeInterval, completion: nil) }
     }
 
     func stop(after timeInterval: TimeInterval = .zero) {
+        bedSource.stop(after: timeInterval)
+        bedSource.seek(to: .zero)
         sources.forEach {
             $0.stop(after: timeInterval)
             $0.seek(to: .zero)
@@ -147,6 +155,8 @@ private extension BinauralCoordinator {
             try context.connect(source: source, to: connector)
             try context.connect(source: connector, to: context.destination)
         }
+
+        try context.connect(source: bedSource, to: context.destination)
     }
 
     func applySourcePositions() {

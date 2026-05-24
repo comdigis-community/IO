@@ -27,10 +27,11 @@ import simd
 class BinauralCoordinator: ObservableObject, @unchecked Sendable {
 
     private static let channels: [ChannelConfiguration] = [
-        .init(assetName: "stem_lead_mono", position: SIMD3<Float>(x: 0.0, y: 0.0, z: -15.0)),
-        .init(assetName: "stem_chorus_mono", position: SIMD3<Float>(x: 0.0, y: 0.0, z: -15.0)),
-        .init(assetName: "stem_reverb_mono_l", position: SIMD3<Float>(x: -25.0, y: 0.0, z: 15.0)),
-        .init(assetName: "stem_reverb_mono_r", position: SIMD3<Float>(x: 25.0, y: 0.0, z: 15.0))
+        .init(assetName: "stem_guitars_mono_l", position: .init(x: -50.0, y: 0.0, z: -25.0)),
+        .init(assetName: "stem_guitars_mono_r", position: .init(x: 50.0, y: 0.0, z: -25.0)),
+        .init(assetName: "stem_lead_mono", position: .init(x: 0.0, y: 0.0, z: -10.0)),
+        .init(assetName: "stem_reverb_mono_l", position: .init(x: -50.0, y: 0.0, z: 50.0)),
+        .init(assetName: "stem_reverb_mono_r", position: .init(x: 50.0, y: 0.0, z: 50.0))
     ]
 
     private static let bedAssetName = "stem_bed_stereo"
