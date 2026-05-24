@@ -13,8 +13,8 @@
 		BD26444E2F44221000E17C01 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD26444B2F44221000E17C01 /* CameraViewController.swift */; };
 		BD2648172F44316B00E17C01 /* CameraViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2648162F44316B00E17C01 /* CameraViewController+.swift */; };
 		BDFBDF4F2F41AD080043F7CD /* Binaural+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBDF4E2F41AD080043F7CD /* Binaural+.swift */; };
-		BDFBE43C2F426C8A0043F7CD /* voiceover_en.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE43A2F426C8A0043F7CD /* voiceover_en.wav */; };
-		BDFBE43D2F426C8A0043F7CD /* voiceover_es.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE43B2F426C8A0043F7CD /* voiceover_es.wav */; };
+		BDFBE43C2F426C8A0043F7CD /* voiceover_xr_en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE43A2F426C8A0043F7CD /* voiceover_xr_en.mp3 */; };
+		BDFBE43D2F426C8A0043F7CD /* voiceover_xr_es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE43B2F426C8A0043F7CD /* voiceover_xr_es.mp3 */; };
 		DC27448D2B6018B9001E366B /* Binaural.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC27448C2B6018B9001E366B /* Binaural.swift */; };
 		DC5DAC582B5E97C8003BC704 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5DAC572B5E97C8003BC704 /* App.swift */; };
 		DC5DAC5F2B5E97C8003BC704 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5DAC5D2B5E97C8003BC704 /* Main.storyboard */; };
@@ -29,8 +29,8 @@
 		BD26444B2F44221000E17C01 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		BD2648162F44316B00E17C01 /* CameraViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+.swift"; sourceTree = "<group>"; };
 		BDFBDF4E2F41AD080043F7CD /* Binaural+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binaural+.swift"; sourceTree = "<group>"; };
-		BDFBE43A2F426C8A0043F7CD /* voiceover_en.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voiceover_en.wav; sourceTree = "<group>"; };
-		BDFBE43B2F426C8A0043F7CD /* voiceover_es.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voiceover_es.wav; sourceTree = "<group>"; };
+		BDFBE43A2F426C8A0043F7CD /* voiceover_xr_en.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = voiceover_xr_en.mp3; path = ../../../etc/voiceover_xr_en.mp3; sourceTree = "<group>"; };
+		BDFBE43B2F426C8A0043F7CD /* voiceover_xr_es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = voiceover_xr_es.mp3; path = ../../../etc/voiceover_xr_es.mp3; sourceTree = "<group>"; };
 		DC27448C2B6018B9001E366B /* Binaural.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binaural.swift; sourceTree = "<group>"; };
 		DC5DAC542B5E97C8003BC704 /* SampleApp (iOS).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SampleApp (iOS).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5DAC572B5E97C8003BC704 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -74,8 +74,8 @@
 				DC5DAC652B5E97C9003BC704 /* Info.plist */,
 				DC5DAC5D2B5E97C8003BC704 /* Main.storyboard */,
 				DCEA11002F70000100A1A1A1 /* Localizable.strings */,
-				BDFBE43A2F426C8A0043F7CD /* voiceover_en.wav */,
-				BDFBE43B2F426C8A0043F7CD /* voiceover_es.wav */,
+				BDFBE43A2F426C8A0043F7CD /* voiceover_xr_en.mp3 */,
+				BDFBE43B2F426C8A0043F7CD /* voiceover_xr_es.mp3 */,
 				DC5DAC622B5E97C9003BC704 /* LaunchScreen.storyboard */,
 			);
 			path = Assets;
@@ -191,8 +191,8 @@
 				DC5DAC642B5E97C9003BC704 /* LaunchScreen.storyboard in Resources */,
 				DC5DAC612B5E97C9003BC704 /* Assets.xcassets in Resources */,
 				DCEA11032F70000100A1A1A1 /* Localizable.strings in Resources */,
-				BDFBE43C2F426C8A0043F7CD /* voiceover_en.wav in Resources */,
-				BDFBE43D2F426C8A0043F7CD /* voiceover_es.wav in Resources */,
+				BDFBE43C2F426C8A0043F7CD /* voiceover_xr_en.mp3 in Resources */,
+				BDFBE43D2F426C8A0043F7CD /* voiceover_xr_es.mp3 in Resources */,
 				DC5DAC5F2B5E97C8003BC704 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

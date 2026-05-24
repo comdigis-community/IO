@@ -1,8 +1,31 @@
-#### Overview
+## Comdigis I/O - Community Edition
 
-I/O is a **multiplatform audio graph engine**, written entirely in ***Swift***, designed to offer a flexible and high-performance system for creating, processing, and routing audio in real time. The engine provides a comprehensive set of tools to select audio sources, apply effects, generate visualizations, and more. All operations are executed within an **audio context**, conceived to enable ***modular*** and scalable routing. Core operations are performed through *nodes*, which are linked together to form a processing graph. These nodes can be arranged into ***simple chains or more complex networks***, connecting their inputs and outputs to establish custom signal paths. Typically, processing begins with one or more sources delivering samples at extremely small time intervals—often tens of thousands per second. 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./images/comdigis-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="./images/comdigis-light.svg">
+    <img alt="Comdigis" src="./images/comdigis-light.svg" width="280">
+  </picture>
+</p>
 
-The output of each node can be routed to others, mixing, transforming, or processing the audio signal in different ways, enabling sophisticated paths for ***production, analysis, or final rendering***. Thanks to its modular architecture and optimized implementation in ***Swift***, I/O combines design clarity with high performance, ensuring accuracy and low latency across multiple environments.
+<p align="center">
+  <img alt="Swift" src="https://img.shields.io/badge/Swift-5.x-orange?logo=swift">
+  <img alt="SwiftPM" src="https://img.shields.io/badge/SwiftPM-supported-brightgreen?logo=swift">
+  <img alt="Platforms" src="https://img.shields.io/badge/platforms-iOS%20%7C%20macOS%20%7C%20visionOS%20%7C%20Android-blue">
+  <img alt="Release" src="https://img.shields.io/github/v/release/comdigis-community/IO?label=release">
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-green">
+</p>
+
+
+**Comdigis I/O** is a **multiplatform spatial audio engine**, written entirely in ***Swift***, focused on delivering high-performance, low-latency audio processing for **immersive experiences**. Designed around a flexible real-time audio graph architecture, that enables developers and creators to build advanced pipelines for **spatial audio, 3D positioning, XR, interactive media, and next-generation entertainment apps**.
+
+At its core, I/O provides a modular ecosystem of interconnected *nodes* capable of generating, routing, transforming, analyzing, and rendering audio with deterministic precision. Audio flows through an extensible processing graph where nodes can be combined into simple chains or highly sophisticated networks, enabling custom signal paths for **real-time DSP, spatialization, mixing, visualization, analysis, and immersive playback**. 
+
+The engine is specifically designed to support **spatial audio workflows**, reproducing depth, direction, distance, and movement with high precision for headphone-based experiences and modern spatial computing environments. Its architecture allows multiple audio sources to coexist and interact dynamically within a shared audio context, enabling scalable and adaptive sound environments across platforms.
+
+By combining a clean modular design with an optimized Swift implementation, **Comdigis I/O** delivers the performance, scalability, and flexibility required for professional-grade audio applications while maintaining a developer-friendly architecture suitable for both experimentation and production environments.
+
+Learn more on [comdigis.com](https://www.comdigis.com) or explore the [documentation](https://docs.comdigis.com/user-guide-io)
 
 #### Preview (iOS)
 
@@ -16,7 +39,7 @@ This demo showcases I/O running on **iOS** with **RealityKit**, highlighting rea
 
 [![Mobile demo](./images/comdigis.png)](https://youtu.be/wd83_5iCI0k)
 
-#### Preview (desktop)
+#### Preview (Desktop)
 
 This demo presents I/O in a **macOS** environment through a configurable desktop application. It focuses on exploring the engine’s core capabilities—audio routing, parameter control, and real-time processing—allowing developers to experiment with different graph configurations and better understand the system’s behavior in a controlled, non-immersive setting.
 
@@ -81,6 +104,14 @@ dependencies {
     implementation(files("libs/IO-<version>-community.aar"))
 }
 ```
+
+### Experimental (Labs)
+
+The `/experimental` directory contains standalone showcase projects, demos, and educational apps built around I/O. These samples are meant to be explored as practical references rather than core distribution artifacts: they make it easier to inspect how the engine behaves inside complete app contexts, compare platform-specific integrations, and experiment with real-time audio workflows without starting from an empty project.
+
+Inside that area you will find examples covering mobile and desktop playback flows, spatial and head-tracked audio, immersive interfaces, and Android validation for the COMMUNITY AAR. Each project is intentionally scoped as a focused learning surface, useful for testing ideas, understanding integration, or adapting a small apps.
+
+For the full list of available samples, screenshots, and per-project context, see the [Experimental README](./experimental/README.md).
 
 ### Issues
 

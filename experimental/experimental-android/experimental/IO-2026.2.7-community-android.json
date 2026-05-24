@@ -1,0 +1,18 @@
+{
+  "name": "IO",
+  "platform": "android",
+  "edition": "COMMUNITY",
+  "version": "2026.2.7",
+  "group_id": "com.comdigis.io",
+  "artifact_id": "io-android",
+  "artifact": "IO-2026.2.7-community.aar",
+  "artifact_checksum_sha256": "beefb33f8264079f1ab13f49804972843377c1c166037561c7874db58d922257",
+  "pom": "IO-2026.2.7-community.pom",
+  "pom_checksum_sha256": "afd5a32c0d4c5a623a74d53b37d2c4fe9cab8cc380fcf0c621d3620a493b2e96",
+  "module": "IO-2026.2.7-community.module",
+  "module_checksum_sha256": "c23e6c4def7fffb056173f346c8e6e2b941a31670266f88a0c206a6457477f36",
+  "sources": "IO-2026.2.7-community-sources.jar",
+  "sources_checksum_sha256": "81e1440971dda40280163dda718c8ca5faf87525424c92bbe5864b64a1d428cf",
+  "commit": "3a43632",
+  "built_at_utc": "2026-04-19T03:16:15Z"
+}

@@ -20,10 +20,31 @@ abstract class SyncHrtfAssetsTask : DefaultTask() {
     }
 }
 
+abstract class SyncDemoAudioAssetTask : DefaultTask() {
+    @get:InputFile
+    abstract val sourceFile: RegularFileProperty
+
+    @get:OutputDirectory
+    abstract val outputDir: DirectoryProperty
+
+    @TaskAction
+    fun executeSync() {
+        project.copy {
+            from(sourceFile)
+            into(outputDir)
+        }
+    }
+}
+
 val generatedHrtfAssetsDir = layout.buildDirectory.dir("generated/assets/hrtf")
 val syncHrtfAssets by tasks.registering(SyncHrtfAssetsTask::class) {
     sourceDir.set(rootProject.layout.projectDirectory.dir("../database"))
     outputDir.set(generatedHrtfAssetsDir)
+}
+val generatedDemoAudioAssetsDir = layout.buildDirectory.dir("generated/assets/demo-audio")
+val syncDemoAudioAsset by tasks.registering(SyncDemoAudioAssetTask::class) {
+    sourceFile.set(rootProject.layout.projectDirectory.file("../etc/voiceover_interactive_en.mp3"))
+    outputDir.set(generatedDemoAudioAssetsDir)
 }
 
 android {
@@ -79,6 +100,11 @@ androidComponents {
     onVariants(selector().all()) { variant ->
         variant.sources.assets?.addGeneratedSourceDirectory(
             syncHrtfAssets
+        ) { task ->
+            task.outputDir
+        }
+        variant.sources.assets?.addGeneratedSourceDirectory(
+            syncDemoAudioAsset
         ) { task ->
             task.outputDir
         }

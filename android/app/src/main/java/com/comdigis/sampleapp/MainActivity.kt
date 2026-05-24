@@ -227,7 +227,7 @@ class MainActivity : ComponentActivity() {
 
     companion object {
         private const val TAG = "MainActivity"
-        private const val DEMO_AUDIO_ASSET = "voiceover_en.wav"
+        private const val DEMO_AUDIO_ASSET = "voiceover_interactive_en.mp3"
         private const val DEFAULT_AZIMUTH_DEGREES = 0f
         private const val DEFAULT_ELEVATION_DEGREES = 0f
         private const val DEFAULT_DISTANCE_METERS = 2.5f

@@ -59,7 +59,7 @@ final class Orchestrator: ObservableObject {
 // Represents the demo audio sources available for demo.
 // The selected case resolves to a localized WAV asset at runtime.
 enum BinauralObject: String, Hashable {
-    case o1 = "voiceover"
+    case o1 = "voiceover_interactive"
     
     var id: String { return rawValue }
     var description: String { "\(id)_\(Locale.languageCode)" }

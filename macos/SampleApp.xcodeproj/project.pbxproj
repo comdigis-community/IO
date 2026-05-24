@@ -22,8 +22,8 @@
 		BDFBD0B82F4183010043F7CD /* Workspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBD0B72F4183010043F7CD /* Workspace.swift */; };
 		BDFBD0BA2F4183610043F7CD /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBD0B92F4183610043F7CD /* Window.swift */; };
 		BDFBD0C52F418F300043F7CD /* Orchestrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDFBD0C42F418F300043F7CD /* Orchestrator.swift */; };
-		BDFBE4382F426C420043F7CD /* voiceover_en.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE4362F426C420043F7CD /* voiceover_en.wav */; };
-		BDFBE4392F426C420043F7CD /* voiceover_es.wav in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE4372F426C420043F7CD /* voiceover_es.wav */; };
+		BDFBE4382F426C420043F7CD /* voiceover_interactive_en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE4362F426C420043F7CD /* voiceover_interactive_en.mp3 */; };
+		BDFBE4392F426C420043F7CD /* voiceover_interactive_es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BDFBE4372F426C420043F7CD /* voiceover_interactive_es.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +43,8 @@
 		BDFBD0B72F4183010043F7CD /* Workspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspace.swift; sourceTree = "<group>"; };
 		BDFBD0B92F4183610043F7CD /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		BDFBD0C42F418F300043F7CD /* Orchestrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orchestrator.swift; sourceTree = "<group>"; };
-		BDFBE4362F426C420043F7CD /* voiceover_en.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voiceover_en.wav; sourceTree = "<group>"; };
-		BDFBE4372F426C420043F7CD /* voiceover_es.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = voiceover_es.wav; sourceTree = "<group>"; };
+		BDFBE4362F426C420043F7CD /* voiceover_interactive_en.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = voiceover_interactive_en.mp3; path = ../../../etc/voiceover_interactive_en.mp3; sourceTree = "<group>"; };
+		BDFBE4372F426C420043F7CD /* voiceover_interactive_es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = voiceover_interactive_es.mp3; path = ../../../etc/voiceover_interactive_es.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -89,8 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				BDFBA2202F41414C0043F7CD /* Assets.xcassets */,
-				BDFBE4362F426C420043F7CD /* voiceover_en.wav */,
-				BDFBE4372F426C420043F7CD /* voiceover_es.wav */,
+				BDFBE4362F426C420043F7CD /* voiceover_interactive_en.mp3 */,
+				BDFBE4372F426C420043F7CD /* voiceover_interactive_es.mp3 */,
 				BDFBA2212F41414C0043F7CD /* Obj.obj */,
 				BDFBA2222F41414C0043F7CD /* SampleApp.entitlements */,
 			);
@@ -217,8 +217,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDFBE4382F426C420043F7CD /* voiceover_en.wav in Resources */,
-				BDFBE4392F426C420043F7CD /* voiceover_es.wav in Resources */,
+				BDFBE4382F426C420043F7CD /* voiceover_interactive_en.mp3 in Resources */,
+				BDFBE4392F426C420043F7CD /* voiceover_interactive_es.mp3 in Resources */,
 				BDFBA2312F41414C0043F7CD /* Assets.xcassets in Resources */,
 				BDFBA2322F41414C0043F7CD /* Obj.obj in Resources */,
 			);
@@ -285,7 +285,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = H53MHAVYT9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -351,7 +351,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = H53MHAVYT9;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;

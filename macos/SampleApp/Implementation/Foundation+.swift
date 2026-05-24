@@ -27,7 +27,7 @@ extension URL {
         Bundle.main.resourceURL ?? { fatalError() }()
     }
     static func resource(named name: String) -> URL? {
-        Bundle.main.url(forResource: name, withExtension: "wav")
+        Bundle.main.url(forResource: name, withExtension: "mp3")
     }
 }
 extension Locale {
