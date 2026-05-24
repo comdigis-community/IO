@@ -14,4 +14,4 @@ https://github.com/comdigis-community/IO/issues
 
 This project is distributed under a license that allows its use, modification, and distribution, provided that the specified terms are respected (http://opensource.org/licenses/mit-license.php)
 
-Copyright © 2019 - 2027 - ***Comdigis***, *Buenos Aires, Argentina*.
+Copyright © 2019 - 2029 - ***Comdigis***, *Buenos Aires, Argentina*.
