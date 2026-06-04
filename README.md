@@ -27,6 +27,16 @@ By combining a clean modular design with an optimized Swift implementation, **Co
 
 Learn more on [comdigis.com](https://www.comdigis.com) or explore the [documentation](https://docs.comdigis.com/user-guide-io)
 
+<div align="center">
+  <video
+    src="https://github.com/user-attachments/assets/c2496384-1611-4db9-a97f-c9c4a9d542de"
+    width="100%"
+    poster="./images/comdigis.png">
+  </video>
+  <p>Use headphones for the best experience</p>
+</div>
+
+
 #### Preview (iOS)
 
 This demo showcases I/O running on **iOS** with **RealityKit**, highlighting real-time audio graph processing in an interactive and spatial context. It demonstrates how audio sources and processing nodes can be dynamically updated in response to changes, making it suitable for immersive experiences.
